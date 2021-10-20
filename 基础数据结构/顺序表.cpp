@@ -99,14 +99,17 @@ int main() {
     #define MAX_OP 20
     Vector *v = init(1);
     for (int i = 0; i < MAX_OP; i ++) {
-        int op = rand() % 2;
+        int op = rand() % 4;
         int val = rand() % 100;
-        int index = rand() % (v->length + 1);
-        switch (op) {
-            case 0 : {
+        // int index = rand() % (v->length + 1); 
+        int index = rand() % (v->length + 3) - 1; // index的范围更全面
+        switch (op) { // 提高插入命中率
+            case 0 :
+            case 1 :
+            case 2 : {
                 printf("insert %d at %d to Vector = %d\n",val, index, insert(v, index, val));
             } break;
-            case 1 : {
+            case 3 : {
                 printf("erase a item at %d from Vector = %d\n", index, erase(v, index));
             } break;
         }
