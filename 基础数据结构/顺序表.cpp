@@ -35,12 +35,12 @@ int expand(Vector *v) {
     int *p = NULL;
     while (extr_size) {
         p = (int *)realloc(v->data, sizeof(int) * (v->size + extr_size));
-        if (p != NULL)
+        if (p != NULL)  // 扩容成功
             break;
         // 申请失败的话试着申请少一点
         extr_size >>= 1; 
     }
-    if (p == NULL) return 0;
+    if (p == NULL) return 0; // 不确定是怎么跳出循环的
     v->data = p;
     v->size += extr_size;
     return 1;
