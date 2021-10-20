@@ -3,6 +3,9 @@
 #include <stdlib.h>
 #include <time.h>
 
+#define COLOR(a, b) "\033[" #b "m" a "\033[0m"
+#define GREEN(a) COLOR(a, 32)
+
 // vector容量是size   已经有的最后一个元素的后一个下标，就是元素数量
 typedef struct Vector {
     int *data;
@@ -49,7 +52,7 @@ int insert(Vector *v, int index, int val) {
     if (v->length == v->size - 1) { // 扩容
         if (!expand(v))
             return 0;
-        printf("success to expand! the size = %d\n", v->size);
+        printf(GREEN("success to expand! the size = %d\n"), v->size);
     }
     if (index < 0 || index > v->length) return 0;
     for (int i = v->length; i > index; i --) {
