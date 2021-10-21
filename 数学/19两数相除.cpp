@@ -1,3 +1,4 @@
+// int 和 long
 /*
 class Solution {
 public:
@@ -19,7 +20,7 @@ public:
         return res * flag;
     }
 
-    long div(long a, long b) {
+    int div(long a, long b) {
         if (a < b) return 0;
         long count = 1;
         long t = b;
