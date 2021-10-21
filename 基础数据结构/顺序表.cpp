@@ -110,7 +110,7 @@ int main() {
                 printf("insert %d at %d to Vector = %d\n",val, index, insert(v, index, val));
             } break;
             case 3 : {
-                printf("erase a item at %d from Vector = %d\n", index, erase(v, index));
+                printf("erase an item at %d from Vector = %d\n", index, erase(v, index));
             } break;
         }
         output(v), printf("\n");
@@ -119,3 +119,9 @@ int main() {
     clear(v); 
     return 0;
 }
+
+// 顺序表存满之后怎么删  所谓的删除是逻辑上的  实际上可能并没有删除或者覆盖
+// 内存泄漏是怎样的？？ 用不了，操作系统还不能回收
+    // 析构  虚析构
+    // 程序运行是内部要主动free
+// realloc只有申请成功后才会释放原来的数据
