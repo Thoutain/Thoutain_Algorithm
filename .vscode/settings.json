@@ -5,6 +5,15 @@
         "array": "cpp",
         "string_view": "cpp",
         "initializer_list": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "atomic": "c",
+        "*.tcc": "c",
+        "deque": "c",
+        "string": "c",
+        "unordered_map": "c",
+        "fstream": "c",
+        "limits": "c",
+        "sstream": "c",
+        "system_error": "c"
     }
 }
