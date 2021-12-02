@@ -57,3 +57,44 @@ public:
         return res;
     }
 };
+
+
+// right version
+/*
+有多少个数阶乘的末尾有k个零
+
+1.如何求阶乘后末尾零的个数
+    10^k--->2^a  5^b--->min(a, b)--->其实就是求5的数量
+    如何求n！里面质因数p的次数 acwing197阶乘分解
+    [n/p] + [n/p^2] + ……
+    有上界和下届的问题把它转化为只有上界
+
+*/
+typedef long long ll;
+
+class Solution {
+public:
+    int preimageSizeFZF(int k) {
+        return calc(k) - calc(k - 1);
+    }
+
+    ll f(ll mid) {
+        ll res = 0;
+        while (mid)
+            res += mid / 5, mid /= 5;
+        return res;
+    }
+
+    ll calc(int k) { // 有多少个数末尾零的个数小于等于K
+        ll l = -1;
+        ll r = 1e18;
+        while (l < r) {
+            ll mid = (l + r + 1) >> 1;
+            if (f(mid) <= k) 
+                l = mid;
+            else 
+                r = mid - 1;
+        }
+        return l;
+    }
+};
